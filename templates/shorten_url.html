@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <a href="\list">View List of Shortened Urls</a>
+    <br> <br>
+    <form method="post" id="form">
+        {% csrf_token %}
+        <label for="long_url">Enter a Long URL:</label><br>
+        <input type="text" id="long_url" name="long_url" required><br><br>
+        <input type="submit" value="Shorten URL">
+    </form>
+    {% if short_url %}
+        <p>Shortened URL: <a href="{{ short_url }}">{{ short_url }}</a></p>
+    {% endif %}
+</body>
+</html>
